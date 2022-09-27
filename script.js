@@ -1,14 +1,15 @@
 let guessNumber = 0;
 let originalNumber = randomInt(0, 100);
-
-console.log(originalNumber);
-
 let numberInput = document.getElementById("number");
 let checkBtn = document.getElementById("check-btn");
 let result = document.querySelector("#last-div");
+let guessNumberHtml = document.querySelector('#guess-number')
+
 
 checkBtn.onclick = function () {
-  var value = Number(numberInput.value);
+  let value = Number(numberInput.value);
+  guessNumber += 1;
+  guessNumberHtml.textContent = guessNumber;
 
   console.log(originalNumber, value);
   if (originalNumber > value) {
@@ -21,6 +22,11 @@ checkBtn.onclick = function () {
     result.style.color = 'green';
     result.innerHTML = "Bravo dogru bildiniz...";
   }
+
+  let buton = document.createElement("button");
+  buton.innerHTML = "Tıkla";
+
+  document.body.appendChild(buton);
 
   //   guessNumber = guessNumber + value;
   //   console.log("Butona tiklandi", value, guessNumber);
